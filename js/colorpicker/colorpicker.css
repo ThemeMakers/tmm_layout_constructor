@@ -8,7 +8,7 @@
     display: none;
 }
 
-.wp-admin .colorpicker {z-index: 195;}
+.wp-admin .colorpicker {z-index: 9999;}
 
 .colorpicker_color {
     width: 150px;
