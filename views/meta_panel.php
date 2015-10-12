@@ -244,12 +244,12 @@
 						<?php
 						TMM_Ext_LayoutConstructor::draw_html_option(array(
 							'type' => 'checkbox',
-							'title' => __('', 'tmm_layout_constructor'),
+							'title' => '',
 							'shortcode_field' => 'row_background_is_cover',
 							'id' => 'row_background_is_cover',
 							'default_value' => 0,
-							'is_checked'=>false,
-							'description' => __('Background Size no is cover', 'tmm_layout_constructor'),
+							'is_checked' => false,
+							'description' => __('Set Background Size as cover', 'tmm_layout_constructor'),
 						));
 						?>
 
