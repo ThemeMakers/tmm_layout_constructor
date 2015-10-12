@@ -51,7 +51,7 @@
 				</table>
 
 				<input type="hidden" id="row_full_width_<?php echo $row ?>" value="<?php echo (isset($tmm_layout_constructor_row[$row]) ? @$tmm_layout_constructor_row[$row]['full_width'] : 0) ?>" name="tmm_layout_constructor_row[<?php echo $row ?>][full_width]" />
-				<input type="hidden" id="row_bg_type_<?php echo $row ?>" value="<?php echo (isset($tmm_layout_constructor_row[$row]) ? @$tmm_layout_constructor_row[$row]['bg_type'] : '') ?>" name="tmm_layout_constructor_row[<?php echo $row ?>][bg_type]" />
+				<input type="hidden" id="row_bg_type_<?php echo $row ?>" value="<?php echo (isset($tmm_layout_constructor_row[$row]) ? @$tmm_layout_constructor_row[$row]['bg_type'] : '0') ?>" name="tmm_layout_constructor_row[<?php echo $row ?>][bg_type]" />
 				<input type="hidden" id="row_bg_data_<?php echo $row ?>" value="<?php echo (isset($tmm_layout_constructor_row[$row]) ? @$tmm_layout_constructor_row[$row]['bg_data'] : '') ?>" name="tmm_layout_constructor_row[<?php echo $row ?>][bg_data]" />
 				<input type="hidden" id="row_bg_custom_color_<?php echo $row ?>" value="<?php echo (isset($tmm_layout_constructor_row[$row]) ? @$tmm_layout_constructor_row[$row]['bg_color'] : '') ?>" name="tmm_layout_constructor_row[<?php echo $row ?>][bg_color]" />
 				<input type="hidden" id="row_bg_custom_image_<?php echo $row ?>" value="<?php echo (isset($tmm_layout_constructor_row[$row]) ? @$tmm_layout_constructor_row[$row]['bg_image'] : '') ?>" name="tmm_layout_constructor_row[<?php echo $row ?>][bg_image]" />
@@ -130,7 +130,7 @@
 				</tr>
 			</table>
 			<input type="hidden" id="row_full_width___ROW_ID__" value="0" name="tmm_layout_constructor_row[__ROW_ID__][full_width]" />
-			<input type="hidden" id="row_bg_type___ROW_ID__" value="" name="tmm_layout_constructor_row[__ROW_ID__][bg_type]" />
+			<input type="hidden" id="row_bg_type___ROW_ID__" value="0" name="tmm_layout_constructor_row[__ROW_ID__][bg_type]" />
 			<input type="hidden" id="row_bg_data___ROW_ID__" value="" name="tmm_layout_constructor_row[__ROW_ID__][bg_data]" />
 			<input type="hidden" id="row_bg_custom_color___ROW_ID__" value="" name="tmm_layout_constructor_row[__ROW_ID__][bg_color]" />
 			<input type="hidden" id="row_bg_custom_image___ROW_ID__" value="" name="tmm_layout_constructor_row[__ROW_ID__][bg_image]" />
@@ -193,10 +193,11 @@
 						'shortcode_field' => 'row_background_type',
 						'id' => 'row_background_type',
 						'options' => array(
+							'0' => __('Transparent', 'tmm_layout_constructor'),
 							'default' => __('Default Theme Color', 'tmm_layout_constructor'),
 							'custom' => __('Custom', 'tmm_layout_constructor'),
 						),
-						'default_value' => 'default',
+						'default_value' => '0',
 						'description' => ''
 					));
 					?>
