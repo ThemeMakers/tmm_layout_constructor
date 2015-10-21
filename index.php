@@ -14,8 +14,7 @@ class TMM_Ext_LayoutConstructor {
 	public static $grid_class = array();
 
 	public static function register() {
-		load_plugin_textdomain('tmm_layout_constructor', false, dirname(plugin_basename(__FILE__)) . '/languages');				
-		add_action('admin_head', array(__CLASS__, 'admin_head'), 1);		
+		add_action('admin_head', array(__CLASS__, 'admin_head'), 1);
 		add_action('save_post', array(__CLASS__, 'save_post'), 1);
 		add_action('wp_ajax_get_lc_editor', array(__CLASS__, 'get_lc_editor'));
 	}
@@ -334,3 +333,11 @@ add_action('init', array('TMM_Ext_LayoutConstructor', 'register'), 1);
 add_action('wp_enqueue_scripts', array('TMM_Ext_LayoutConstructor', 'wp_head'), 1);
 add_action("admin_enqueue_scripts", array('TMM_Ext_LayoutConstructor', 'admin_init'), 1);
 
+/**
+ * Load plugin textdomain.
+ */
+function tmm_lc_load_textdomain() {
+	load_plugin_textdomain( 'tmm_layout_constructor', false, plugin_basename( dirname( __FILE__ ) ) . '/languages' );
+}
+
+add_action( 'plugins_loaded', 'tmm_lc_load_textdomain' );
