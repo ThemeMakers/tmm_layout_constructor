@@ -142,7 +142,7 @@ var TMM_APP_CONTENT_CONSTRUCTOR = function() {
 	                            if(selected_opt) {
 		                            jQuery('.grid_selector').val(selected_opt).find('[value='+selected_opt+']').attr('selected', 'selected');
 	                            }
-                                jQuery(document).on('change', '.grid_selector', function() {
+                                jQuery('#layout_constructor_column_options').on('change', '.grid_selector', function() {
                                     jQuery("#item_" + item_id).find('.js_effect').val(jQuery(this).val());
                                 });
                             },
