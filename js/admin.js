@@ -334,7 +334,7 @@ var TMM_APP_CONTENT_CONSTRUCTOR = function() {
 						name: 'Apply',
 						action: function(__self) {
 							jQuery('[data-group-name="' + group_name + '"]').find('.group_settings_html').html(__self.get_content());
-							var attrs = ['bg_image', 'bg_touch_image', 'bg_color', 'border_bottom_color', 'paralax_image', 'is_full_width', 'is_overlay', 'is_parallax', 'bg_attachment', 'opacity','padding_top','padding_bottom'];
+							var attrs = ['bg_image', 'bg_touch_image', 'bg_color', 'border_bottom_color', 'paralax_image', 'is_full_width', 'is_overlay', 'is_parallax', 'bg_attachment', 'opacity','viewport_height_full','padding_top','padding_bottom'];
 							jQuery.each(attrs, function(key, shortcode_field_name) {
 								var tmp = jQuery('[data-group-name="' + group_name + '"]').find('.group_settings_html').find('[data-shortcode-field="' + shortcode_field_name + '"]').val();
 								jQuery('[data-group-name="' + group_name + '"]').find('[data-attr="' + shortcode_field_name + '"]').val(tmp);

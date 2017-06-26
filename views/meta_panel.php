@@ -37,6 +37,7 @@
 											'content' => $column['content'],
 											'title' => $column['title'],
 											'grid_class' => @$column['grid_class'],
+											'viewport_height_full' => @$column['viewport_height_full'],
 											'padding_top' => @$column['padding_top'],
 											'padding_bottom' => @$column['padding_bottom'],
 										);
@@ -95,8 +96,20 @@
 							'is_checked' => (bool) @$tmm_layout_constructor_group[$group_name]['is_full_width'],
 							'description' => __('On / Off', 'tmm_layout_constructor'),
 						));
-						?>		
+						?>
 						
+						<?php
+						TMM_Ext_LayoutConstructor::draw_html_option(array(
+							'type' => 'checkbox',
+							'title' => __('Scale section height', 'tmm_layout_constructor'),
+							'shortcode_field' => 'viewport_height_full',
+							'id' => 'viewport_height_full',
+							'default_value' => @$tmm_layout_constructor_group[$group_name]['viewport_height_full'],
+							'is_checked' => (bool) @$tmm_layout_constructor_group[$group_name]['viewport_height_full'],
+							'description' => __('Set viewport size height to 100%', 'tmm_layout_constructor'),
+						));
+						?>
+
 						<?php
 						TMM_Ext_LayoutConstructor::draw_html_option(array(
 							'type' => 'checkbox',
@@ -234,8 +247,9 @@
 				<input type="hidden" name="tmm_layout_constructor_group[<?php echo $group_name ?>][is_full_width]" data-attr="is_full_width" value="<?php echo @$tmm_layout_constructor_group[$group_name]['is_full_width'] ?>" />
 				<input type="hidden" name="tmm_layout_constructor_group[<?php echo $group_name ?>][bg_attachment]" data-attr="bg_attachment" value="<?php echo @$tmm_layout_constructor_group[$group_name]['bg_attachment'] ?>" />
 				<input type="hidden" name="tmm_layout_constructor_group[<?php echo $group_name ?>][opacity]" data-attr="opacity" value="<?php echo @$tmm_layout_constructor_group[$group_name]['opacity'] ?>" />				
-				<input type="hidden" name="tmm_layout_constructor_group[<?php echo $group_name ?>][padding_top]" data-attr="padding_top" value="<?php echo @$tmm_layout_constructor_group[$group_name]['padding_top'] ?>" />				
-				<input type="hidden" name="tmm_layout_constructor_group[<?php echo $group_name ?>][padding_bottom]" data-attr="padding_bottom" value="<?php echo @$tmm_layout_constructor_group[$group_name]['padding_bottom'] ?>" />				
+				<input type="hidden" name="tmm_layout_constructor_group[<?php echo $group_name ?>][viewport_height_full]" data-attr="viewport_height_full" value="<?php echo @$tmm_layout_constructor_group[$group_name]['viewport_height_full'] ?>" />
+				<input type="hidden" name="tmm_layout_constructor_group[<?php echo $group_name ?>][padding_top]" data-attr="padding_top" value="<?php echo @$tmm_layout_constructor_group[$group_name]['padding_top'] ?>" />
+				<input type="hidden" name="tmm_layout_constructor_group[<?php echo $group_name ?>][padding_bottom]" data-attr="padding_bottom" value="<?php echo @$tmm_layout_constructor_group[$group_name]['padding_bottom'] ?>" />
 			</li>
 		<?php endforeach; ?>
 	<?php endif; ?>

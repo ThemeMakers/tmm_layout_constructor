@@ -23,6 +23,8 @@ if (!empty($groups_array)) {
 				$border_bottom_css = "border-color:" . $border_bottom_color.';';
 			}
 			
+			@$viewport_height_full = $tmm_layout_constructor_group[$group]['viewport_height_full'];
+
 			@$padding_top = $tmm_layout_constructor_group[$group]['padding_top'];
 			@$padding_bottom = $tmm_layout_constructor_group[$group]['padding_bottom'];
 			
@@ -34,7 +36,7 @@ if (!empty($groups_array)) {
 			
 			?>
 
-			<section class="section <?php if ($is_mobile_touch): ?>mobile-video-image<?php endif; ?> <?php if (!empty($padding_top)): ?> padding-top-off<?php endif; ?><?php if (!empty($padding_bottom)): ?> padding-bottom-off<?php endif; ?><?php if (@!empty($tmm_layout_constructor_group[$group]['is_parallax'])): ?> parallax<?php endif; ?><?php if (!empty($border_bottom_color)): ?> border<?php endif; ?><?php if ($tmm_layout_constructor_group[$group]['bg_attachment']): ?> bg_attachment<?php endif; ?>" style="<?php if (@!empty($tmm_layout_constructor_group[$group]['bg_color'])): ?>background-color: <?php echo @$tmm_layout_constructor_group[$group]['bg_color'] ?>;<?php endif; ?><?php echo $border_bottom_css ?>">
+			<section class="section <?php if ($is_mobile_touch): ?>mobile-video-image<?php endif; ?><?php if (!empty($viewport_height_full)): ?> viewport-full<?php endif; ?><?php if (!empty($padding_top)): ?> padding-top-off<?php endif; ?><?php if (!empty($padding_bottom)): ?> padding-bottom-off<?php endif; ?><?php if (@!empty($tmm_layout_constructor_group[$group]['is_parallax'])): ?> parallax<?php endif; ?><?php if (!empty($border_bottom_color)): ?> border<?php endif; ?><?php if ($tmm_layout_constructor_group[$group]['bg_attachment']): ?> bg_attachment<?php endif; ?>" style="<?php if (@!empty($tmm_layout_constructor_group[$group]['bg_color'])): ?>background-color: <?php echo @$tmm_layout_constructor_group[$group]['bg_color'] ?>;<?php endif; ?><?php echo $border_bottom_css ?>">
 
 				<?php if (@$tmm_layout_constructor_group[$group]['is_overlay']): ?>
 					<div class="parallax-overlay"></div>
