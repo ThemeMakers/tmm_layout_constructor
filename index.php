@@ -4,11 +4,10 @@
   Plugin URI: http://webtemplatemasters.com
   Description: Universal Layout Constructor (Accio)
   Author: ThemeMakers
-  Version: 1.0.2
+  Version: 1.0.3
   Author URI: http://themeforest.net/user/ThemeMakers
  */
 
-//08-01-2014
 class TMM_Ext_LayoutConstructor {
 
 	public static $grid_class = array();
