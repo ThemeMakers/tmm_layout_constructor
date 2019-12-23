@@ -209,13 +209,11 @@ class TMM_Ext_LayoutConstructor {
 					<?php endif; ?>
 
 					<?php if (!empty($data['options'])): ?>
-						<label class="sel">
-							<select <?php if ($data['display'] == 0): ?>style="display: none;"<?php endif; ?> class="js_shortcode_template_changer data-select <?php echo @$data['css_classes']; ?>" data-shortcode-field="<?php echo $data['shortcode_field'] ?>" id="<?php echo $data['id'] ?>">
-								<?php foreach ($data['options'] as $key => $text) : ?>
-									<option <?php if ($data['default_value'] == $key) echo 'selected' ?> value="<?php echo $key ?>"><?php echo $text ?></option>
-								<?php endforeach; ?>
-							</select>
-						</label>
+						<select <?php if ($data['display'] == 0): ?>style="display: none;"<?php endif; ?> class="js_shortcode_template_changer data-select <?php echo @$data['css_classes']; ?>" data-shortcode-field="<?php echo $data['shortcode_field'] ?>" id="<?php echo $data['id'] ?>">
+							<?php foreach ($data['options'] as $key => $text) : ?>
+								<option <?php if ($data['default_value'] == $key) echo 'selected' ?> value="<?php echo $key ?>"><?php echo $text ?></option>
+							<?php endforeach; ?>
+						</select>
 					<?php endif; ?>
 				</div><!--/ .field-group-->
 				<?php
