@@ -56,13 +56,16 @@ class TMM_Ext_LayoutConstructor {
 			'col-sm-11' => __("col-sm-11", 'tmm_layout_constructor'),
 			'col-sm-12' => __("col-sm-12", 'tmm_layout_constructor'),
 		);
-	
-		add_meta_box("tmm_layout_constructor", __("ThemeMakers Layout Constructor", 'tmm_layout_constructor'), array(__CLASS__, 'draw_page_meta_box'), "page", "normal", "high");
-		add_meta_box("tmm_layout_constructor", __("ThemeMakers Layout Constructor", 'tmm_layout_constructor'), array(__CLASS__, 'draw_page_meta_box'), "post", "normal", "high");
-		
-		if (class_exists('TMM_Portfolio')) {
-			add_meta_box("tmm_layout_constructor", __("ThemeMakers Layout Constructor", 'tmm_layout_constructor'), array(__CLASS__, 'draw_page_meta_box'), TMM_Portfolio::$slug, "normal", "high");
+
+		if ( class_exists( 'Classic_Editor' ) ) {
+			add_meta_box("tmm_layout_constructor", __("ThemeMakers Layout Constructor", 'tmm_layout_constructor'), array(__CLASS__, 'draw_page_meta_box'), "page", "normal", "high");
+			add_meta_box("tmm_layout_constructor", __("ThemeMakers Layout Constructor", 'tmm_layout_constructor'), array(__CLASS__, 'draw_page_meta_box'), "post", "normal", "high");
+
+			if (class_exists('TMM_Portfolio')) {
+				add_meta_box("tmm_layout_constructor", __("ThemeMakers Layout Constructor", 'tmm_layout_constructor'), array(__CLASS__, 'draw_page_meta_box'), TMM_Portfolio::$slug, "normal", "high");
+			}
 		}
+
 	}
 
 	public static function wp_head() {
