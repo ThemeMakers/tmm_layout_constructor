@@ -105,8 +105,10 @@ class TMM_Ext_LayoutConstructor {
 				$data['tmm_layout_constructor_group'] = array();
 			}
 
-			echo TMM::draw_free_page(self::get_application_path() . '/views/front_output.php', $data);
-			
+			if ( class_exists( 'TMM_Theme_Features' ) ) {
+				echo TMM::draw_free_page(self::get_application_path() . '/views/front_output.php', $data);
+			}
+
 		}
 
 	}
