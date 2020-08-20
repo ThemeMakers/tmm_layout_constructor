@@ -7,10 +7,10 @@ var TMM_ADVANCED_WP_POPUP3 = function() {
 			jQuery('body').prepend('<ul id="tmm_advanced_wp_popup3"></ul>');
 			jQuery('body').prepend('<div id="advanced_wp_popup_overlay" class="advanced_wp_popup_overlay_lc"></div>');
 			//***
-			jQuery('.advanced_wp_popup_close3').live('click', function() {
+			jQuery(document).on('click', '.advanced_wp_popup_close3', function() {
 				self.close(jQuery(this));
 			});
-			jQuery('.advanced_wp_popup_close3').live('click', function() {
+			jQuery(document).on('click', '.advanced_wp_popup_close3', function() {
 				self.close(jQuery(this));
 			});
 		},
