@@ -258,3 +258,15 @@ li.layout_constructor_item {
 		margin-left: 0;
 		margin-right: 10px;
 	}
+
+.type-folio .column-image img {
+	max-width: 100%;
+}
+.type-folio .column-description p {
+	overflow: hidden;
+	display: -webkit-box;
+	line-clamp: 7;
+	-webkit-line-clamp: 7;
+	box-orient: vertical;
+	-webkit-box-orient: vertical;
+}

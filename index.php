@@ -44,25 +44,25 @@ class TMM_Ext_LayoutConstructor {
 		}
 		
 		self::$grid_class = array(
-			'' => __("No", 'tmm_layout_constructor'),
-			'col-sm-3' => __("col-sm-3", 'tmm_layout_constructor'),
-			'col-sm-4' => __("col-sm-4", 'tmm_layout_constructor'),
-			'col-sm-5' => __("col-sm-5", 'tmm_layout_constructor'),
-			'col-sm-6' => __("col-sm-6", 'tmm_layout_constructor'),
-			'col-sm-7' => __("col-sm-7", 'tmm_layout_constructor'),
-			'col-sm-8' => __("col-sm-8", 'tmm_layout_constructor'),
-			'col-sm-9' => __("col-sm-9", 'tmm_layout_constructor'),
-			'col-sm-10' => __("col-sm-10", 'tmm_layout_constructor'),
-			'col-sm-11' => __("col-sm-11", 'tmm_layout_constructor'),
-			'col-sm-12' => __("col-sm-12", 'tmm_layout_constructor'),
+			'' => esc_html__("No", 'tmm_layout_constructor'),
+			'col-sm-3' => esc_attr("col-sm-3"),
+			'col-sm-4' => esc_attr("col-sm-4"),
+			'col-sm-5' => esc_attr("col-sm-5"),
+			'col-sm-6' => esc_attr("col-sm-6"),
+			'col-sm-7' => esc_attr("col-sm-7"),
+			'col-sm-8' => esc_attr("col-sm-8"),
+			'col-sm-9' => esc_attr("col-sm-9"),
+			'col-sm-10' => esc_attr("col-sm-10"),
+			'col-sm-11' => esc_attr("col-sm-11"),
+			'col-sm-12' => esc_attr("col-sm-12"),
 		);
 
 		if ( class_exists( 'Classic_Editor' ) ) {
-			add_meta_box("tmm_layout_constructor", __("ThemeMakers Layout Constructor", 'tmm_layout_constructor'), array(__CLASS__, 'draw_page_meta_box'), "page", "normal", "high");
-			add_meta_box("tmm_layout_constructor", __("ThemeMakers Layout Constructor", 'tmm_layout_constructor'), array(__CLASS__, 'draw_page_meta_box'), "post", "normal", "high");
+			add_meta_box("tmm_layout_constructor", esc_html__("ThemeMakers Layout Constructor", 'tmm_layout_constructor'), array(__CLASS__, 'draw_page_meta_box'), "page", "normal", "high");
+			add_meta_box("tmm_layout_constructor", esc_html__("ThemeMakers Layout Constructor", 'tmm_layout_constructor'), array(__CLASS__, 'draw_page_meta_box'), "post", "normal", "high");
 
 			if (class_exists('TMM_Portfolio')) {
-				add_meta_box("tmm_layout_constructor", __("ThemeMakers Layout Constructor", 'tmm_layout_constructor'), array(__CLASS__, 'draw_page_meta_box'), TMM_Portfolio::$slug, "normal", "high");
+				add_meta_box("tmm_layout_constructor", esc_html__("ThemeMakers Layout Constructor", 'tmm_layout_constructor'), array(__CLASS__, 'draw_page_meta_box'), TMM_Portfolio::$slug, "normal", "high");
 			}
 		}
 
@@ -77,12 +77,12 @@ class TMM_Ext_LayoutConstructor {
 	public static function admin_head() {
 		?>
 		<script type="text/javascript">
-			var lang_sure_item_delete = "<?php _e("Sure about column deleting?", 'tmm_layout_constructor') ?>";
-			var lang_sure_row_delete = "<?php _e("Sure about row deleting?", 'tmm_layout_constructor') ?>";
-			var lang_add_media = "<?php _e("Add Media", 'tmm_layout_constructor') ?>";
-			var lang_empty = "<?php _e("Empty", 'tmm_layout_constructor') ?>";
-			var lang_popup_title = "<?php _e("Column content editor", 'tmm_layout_constructor') ?>";
-			var lang_popup_row_title = "<?php _e("Row editor", 'tmm_layout_constructor') ?>";
+			var lang_sure_item_delete = "<?php esc_html_e("Sure about column deleting?", 'tmm_layout_constructor') ?>";
+			var lang_sure_row_delete = "<?php esc_html_e("Sure about row deleting?", 'tmm_layout_constructor') ?>";
+			var lang_add_media = "<?php esc_html_e("Add Media", 'tmm_layout_constructor') ?>";
+			var lang_empty = "<?php esc_html_e("Empty", 'tmm_layout_constructor') ?>";
+			var lang_popup_title = "<?php esc_html_e("Column content editor", 'tmm_layout_constructor') ?>";
+			var lang_popup_row_title = "<?php esc_html_e("Row editor", 'tmm_layout_constructor') ?>";
 		</script>
 		<?php
 	}
@@ -192,14 +192,15 @@ class TMM_Ext_LayoutConstructor {
 	public static function draw_html_option($data) {
 		switch ($data['type']) {
 			case 'textarea':
+                $uid = uniqid();
 				?>
 				<div class="field-group">
 					<?php if (!empty($data['title'])): ?>
-						<h4 class="label" for="<?php echo $data['id'] ?>"><?php echo $data['title'] ?></h4>
+						<h4 class="label" for="<?php echo esc_attr( $data['id'] . '_' . $uid ) ?>"><?php echo esc_html( $data['title'] ) ?></h4>
 					<?php endif; ?>
 
-					<textarea id="<?php echo $data['id'] ?>" class="js_shortcode_template_changer data-area" data-shortcode-field="<?php echo $data['shortcode_field'] ?>"><?php echo $data['default_value'] ?></textarea>
-					<span class="preset_description"><?php echo $data['description'] ?></span>
+					<textarea id="<?php echo esc_attr( $data['id'] . '_' . $uid ) ?>" class="js_shortcode_template_changer data-area" data-shortcode-field="<?php echo esc_attr( $data['shortcode_field'] ) ?>"><?php echo esc_attr( $data['default_value'] ) ?></textarea>
+					<span class="preset_description"><?php echo esc_html( $data['description'] ) ?></span>
 				</div><!--/ .field-group-->
 				<?php
 				break;
@@ -207,16 +208,17 @@ class TMM_Ext_LayoutConstructor {
 				if (!isset($data['display'])) {
 					$data['display'] = 1;
 				}
+                $uid = uniqid();
 				?>
 				<div class="field-group">
 					<?php if (!empty($data['title'])): ?>
-						<h4 class="label" for="<?php echo $data['id'] ?>"><?php echo $data['title'] ?></h4>
+						<h4 class="label" for="<?php echo esc_attr( $data['id'] . '_' . $uid ) ?>"><?php echo esc_html( $data['title'] ) ?></h4>
 					<?php endif; ?>
 
 					<?php if (!empty($data['options'])): ?>
-						<select <?php if ($data['display'] == 0): ?>style="display: none;"<?php endif; ?> class="js_shortcode_template_changer data-select <?php echo @$data['css_classes']; ?>" data-shortcode-field="<?php echo $data['shortcode_field'] ?>" id="<?php echo $data['id'] ?>">
+						<select <?php if ($data['display'] == 0): ?>style="display: none;"<?php endif; ?> class="js_shortcode_template_changer data-select <?php echo esc_attr( $data['css_classes'] ) ?>" data-shortcode-field="<?php echo esc_attr( $data['shortcode_field'] ) ?>" id="<?php echo esc_attr( $data['id'] . '_' . $uid ) ?>">
 							<?php foreach ($data['options'] as $key => $text) : ?>
-								<option <?php if ($data['default_value'] == $key) echo 'selected' ?> value="<?php echo $key ?>"><?php echo $text ?></option>
+								<option <?php if ($data['default_value'] == $key) echo 'selected' ?> value="<?php echo esc_attr( $key ) ?>"><?php echo esc_html( $text ) ?></option>
 							<?php endforeach; ?>
 						</select>
 					<?php endif; ?>
@@ -224,87 +226,93 @@ class TMM_Ext_LayoutConstructor {
 				<?php
 				break;
 			case 'text':
+                $uid = uniqid();
 				?>
 				<div class="field-group">
 					<?php if (!empty($data['title'])): ?>
-						<h4 class="label" for="<?php echo $data['id'] ?>"><?php echo $data['title'] ?></h4>
+						<h4 class="label" for="<?php echo esc_attr( $data['id'] . '_' . $uid ) ?>"><?php echo esc_html( $data['title'] ) ?></h4>
 					<?php endif; ?>
 
-					<input type="text" value="<?php echo $data['default_value'] ?>" class="js_shortcode_template_changer data-input" data-shortcode-field="<?php echo $data['shortcode_field'] ?>" id="<?php echo $data['id'] ?>" />
-					<span class="preset_description"><?php echo $data['description'] ?></span>
+					<input type="text" value="<?php echo esc_attr( $data['default_value'] ) ?>" class="js_shortcode_template_changer data-input" data-shortcode-field="<?php echo esc_attr( $data['shortcode_field'] ) ?>" id="<?php echo esc_attr( $data['id'] . '_' . $uid ) ?>" />
+					<span class="preset_description"><?php echo esc_html( $data['description'] ) ?></span>
 				</div>
 				<?php
 				break;
 			case 'color':
+			    $uid = uniqid();
 				?>
 				<div class="field-group">
 					<div class="list-item-color">
 						<?php if (!empty($data['title'])): ?>
-							<h4 class="label" for="<?php echo $data['id'] ?>"><?php echo $data['title'] ?></h4>
+							<h4 class="label" for="<?php echo esc_attr( $data['id'] . '_' . $uid ) ?>"><?php echo esc_html( $data['title'] ) ?></h4>
 						<?php endif; ?>
 
-						<input type="text" data-shortcode-field="<?php echo $data['shortcode_field'] ?>" value="<?php echo $data['default_value'] ?>" class="bg_hex_color text small js_shortcode_template_changer" id="<?php echo $data['id'] ?>">
+						<input type="text" data-shortcode-field="<?php echo esc_attr( $data['shortcode_field'] ) ?>" value="<?php echo esc_attr( $data['default_value'] ) ?>" class="bg_hex_color text small js_shortcode_template_changer" id="<?php echo esc_attr( $data['id'] . '_' . $uid ) ?>">
 						<div style="background-color: <?php echo $data['default_value'] ?>" class="bgpicker"></div>
-						<span class="preset_description"><?php echo $data['description'] ?></span>
+						<span class="preset_description"><?php echo esc_html( $data['description'] ) ?></span>
 					</div>
 				</div>
 				<?php
 				break;
 			case 'upload':
+                $uid = uniqid();
 				?>
 				<div class="field-group">
 					<?php if (!empty($data['title'])): ?>
-						<h4 class="label" for="<?php echo $data['id'] ?>"><?php echo $data['title'] ?></h4>
+						<h4 class="label" for="<?php echo esc_attr( $data['id'] . '_' . $uid ) ?>"><?php echo esc_html( $data['title'] ) ?></h4>
 					<?php endif; ?>
 
-					<input type="text" id="<?php echo $data['id'] ?>" value="<?php echo $data['default_value'] ?>" class="js_shortcode_template_changer data-input data-upload <?php echo @$data['css_classes']; ?>" data-shortcode-field="<?php echo $data['shortcode_field'] ?>" />
+					<input type="text" id="<?php echo esc_attr( $data['id'] . '_' . $uid ) ?>" value="<?php echo esc_attr( $data['default_value'] ) ?>" class="js_shortcode_template_changer data-input data-upload <?php echo esc_attr( $data['css_classes'] ) ?>" data-shortcode-field="<?php echo esc_attr( $data['shortcode_field'] ) ?>" />
 					<a title="" class="tmm_button_upload button-primary" href="#">
-						<?php _e('Upload', 'tmm_accio_shortcodes'); ?>
+						<?php esc_html_e('Upload', 'tmm_accio_shortcodes'); ?>
 					</a>
-					<span class="preset_description"><?php echo $data['description'] ?></span>		
+					<span class="preset_description"><?php echo esc_html( $data['description'] ) ?></span>
 				</div>
 				<?php
 				break;
 			case 'checkbox':
+                $uid = uniqid();
 				?>
 				<div class="field-group">
 					<?php if (!empty($data['title'])): ?>
-						<h4 class="label" for="<?php echo $data['id'] ?>"><?php echo $data['title'] ?></h4>
+						<h4 class="label" for="<?php echo esc_attr( $data['id'] . '_' . $uid ) ?>"><?php echo esc_html( $data['title'] ) ?></h4>
 					<?php endif; ?>
 
 					<div class="radio-holder">
-						<input <?php if ($data['is_checked']): ?>checked=""<?php endif; ?> type="checkbox" value="<?php if ($data['is_checked']): ?>1<?php else: ?>0<?php endif; ?>" id="<?php echo $data['id'] ?>" class="js_shortcode_template_changer js_shortcode_checkbox_self_update data-check" data-shortcode-field="<?php echo $data['shortcode_field'] ?>">
-						<label for="<?php echo $data['id'] ?>"><span></span><i class="description"><?php echo $data['description'] ?></i></label>
+						<input <?php if ($data['is_checked']): ?>checked=""<?php endif; ?> type="checkbox" value="<?php if ($data['is_checked']): ?>1<?php else: ?>0<?php endif; ?>" id="<?php echo esc_attr( $data['id'] . '_' . $uid ) ?>" class="js_shortcode_template_changer js_shortcode_checkbox_self_update data-check" data-shortcode-field="<?php echo esc_attr( $data['shortcode_field'] ) ?>">
+						<label for="<?php echo esc_attr( $data['id'] . '_' . $uid ) ?>"><span></span><i class="description"><?php echo esc_html( $data['description'] ) ?></i></label>
 						<span class="preset_description"><?php // echo $data['description'] ?></span>
 					</div><!--/ .radio-holder-->
 				</div>
 				<?php
 				break;
 			case 'radio':
+                $uid = uniqid();
 				?>
 				<div class="field-group">
 					<?php if (!empty($data['title'])): ?>
-						<h4 class="label" for="<?php echo $data['id'] ?>"><?php echo $data['title'] ?></h4>
+						<h4 class="label" for="<?php echo esc_attr( $data['id'] . '_' . $uid ) ?>"><?php echo esc_html( $data['title'] ) ?></h4>
 					<?php endif; ?>
 
 					<div class="radio-holder">
-						<input <?php if ($data['values'][0]['checked'] == 1): ?>checked=""<?php endif; ?> type="radio" name="<?php echo $data['name'] ?>" id="<?php echo $data['values'][0]['id'] ?>" value="<?php echo $data['values'][0]['value'] ?>" class="js_shortcode_radio_self_update" />
-						<label for="<?php echo $data['values'][0]['id'] ?>" class="label-form"><span></span><?php echo $data['values'][0]['title'] ?></label>
+						<input <?php if ($data['values'][0]['checked'] == 1): ?>checked=""<?php endif; ?> type="radio" name="<?php echo esc_attr( $data['name'] ) ?>" id="<?php echo esc_attr( $data['values'][0]['id'] . '_' . $uid ) ?>" value="<?php echo esc_attr( $data['values'][0]['value'] ) ?>" class="js_shortcode_radio_self_update" />
+						<label for="<?php echo esc_attr( $data['values'][0]['id'] . '_' . $uid ) ?>" class="label-form"><span></span><?php echo esc_attr( $data['values'][0]['title'] ) ?></label>
 
-						<input <?php if ($data['values'][1]['checked'] == 1): ?>checked=""<?php endif; ?> type="radio" name="<?php echo $data['name'] ?>" id="<?php echo $data['values'][1]['id'] ?>" value="<?php echo $data['values'][1]['value'] ?>" class="js_shortcode_radio_self_update" />
-						<label for="<?php echo $data['values'][1]['id'] ?>" class="label-form"><span></span><?php echo $data['values'][1]['title'] ?></label>
+						<input <?php if ($data['values'][1]['checked'] == 1): ?>checked=""<?php endif; ?> type="radio" name="<?php echo esc_attr( $data['name'] ) ?>" id="<?php echo esc_attr( $data['values'][1]['id'] . '_' . $uid ) ?>" value="<?php echo esc_attr( $data['values'][1]['value'] ) ?>" class="js_shortcode_radio_self_update" />
+						<label for="<?php echo esc_attr( $data['values'][1]['id'] . '_' . $uid ) ?>" class="label-form"><span></span><?php echo esc_attr( $data['values'][1]['title'] ) ?></label>
 
-						<input type="hidden" id="<?php echo @$data['hidden_id'] ?>" value="<?php echo $data['value'] ?>" class="js_shortcode_template_changer" data-shortcode-field="<?php echo $data['shortcode_field'] ?>" />
+						<input type="hidden" id="<?php echo esc_attr( $data['hidden_id'] ) ?>" value="<?php echo esc_attr( $data['value'] ) ?>" class="js_shortcode_template_changer" data-shortcode-field="<?php echo esc_attr( $data['shortcode_field'] ) ?>" />
 					</div><!--/ .radio-holder-->
-					<span class="preset_description"><?php echo $data['description'] ?></span>
+					<span class="preset_description"><?php echo esc_html( $data['description'] ) ?></span>
 				</div>
 				<?php
 				break;
 			case 'slider':
+                $uid = uniqid();
 				?>
 				<div class="field-group">
-					<input data-default-value="<?php echo @$data['default_value'] ?>" type="text" id="<?php echo $data['id'] ?>" name="<?php echo $data['name'] ?>" value="<?php echo $data['value'] ?>" data-min-value="<?php echo $data['min'] ?>" data-max-value="<?php echo $data['max'] ?>" class="ui_slider_item" />
-					<span class="preset_description"><?php echo $data['description'] ?></span>
+					<input data-default-value="<?php echo esc_attr( $data['default_value'] ) ?>" type="text" id="<?php echo esc_attr( $data['id'] . '_' . $uid ) ?>" name="<?php echo esc_attr( $data['name'] ) ?>" value="<?php echo esc_attr( $data['value'] ) ?>" data-min-value="<?php echo esc_attr( $data['min'] ) ?>" data-max-value="<?php echo esc_attr( $data['max'] ) ?>" class="ui_slider_item" />
+					<span class="preset_description"><?php echo esc_html( $data['description'] ) ?></span>
 				</div>
 				<?php
 				break;

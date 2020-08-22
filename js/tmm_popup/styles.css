@@ -42,20 +42,6 @@
     padding: 5px 8px;
 }
 
-.tmm_advanced_wp_popup_li .sel:after {
-	content: '';
-	width: 25px;
-	height: 25px;
-	top: 2px;
-	right: 2px;
-	display: block;
-	background: url(images/select-pointer.png) 0 -4px no-repeat;
-	position: absolute;
-	pointer-events: none;
-}
-
-.tmm_advanced_wp_popup_li .sel:hover:after { background-position: 0 -28px; }
-
 .tmm_advanced_wp_popup_li input.data-upload { width: 80.7%; }
 
 /* Headings */
