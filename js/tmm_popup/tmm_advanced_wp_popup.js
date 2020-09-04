@@ -32,13 +32,13 @@ var TMM_ADVANCED_WP_POPUP3 = function() {
 			/***/
 			jQuery(popup).append('<div class="advanced_wp_popup_content">');
 			jQuery(popup).find('.advanced_wp_popup_content').html(params.content);
-			jQuery(popup).find('.advanced_wp_popup_content').find('input[type=text]').life('keyup', function() {
+			jQuery(popup).on('keyup', '.advanced_wp_popup_content input[type=text]', function() {
 				jQuery(this).attr('value', jQuery(this).val());
 			});
-			jQuery(popup).find('.advanced_wp_popup_content').find('input[type=text]').life('change', function() {
+			jQuery(popup).on('change', '.advanced_wp_popup_content input[type=text]', function() {
 				jQuery(this).attr('value', jQuery(this).val());
 			});
-			jQuery(popup).find('.advanced_wp_popup_content').find('input[type=checkbox]').life('click', function() {
+			jQuery(popup).on('click', '.advanced_wp_popup_content input[type=checkbox]', function() {
 				var check = jQuery(this).is(':checked');
 				if (check) {
 					jQuery(this).attr('checked', 'checked');
@@ -46,10 +46,10 @@ var TMM_ADVANCED_WP_POPUP3 = function() {
 					jQuery(this).removeAttr('checked');
 				}
 			});
-			jQuery(popup).find('.advanced_wp_popup_content').find('textarea').life('keyup', function() {
+			jQuery(popup).on('keyup', '.advanced_wp_popup_content textarea', function() {
 				jQuery(this).text(jQuery(this).val());
 			});
-			jQuery(popup).find('.advanced_wp_popup_content').find('select').life('change', function() {
+			jQuery(popup).on('change', '.advanced_wp_popup_content select', function() {
 				var value = jQuery(this).val();
 				jQuery(this).find("option").filter(function() {
 					//may want to use $.trim in here

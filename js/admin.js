@@ -3,12 +3,6 @@ var TMM_APP_CONTENT_CONSTRUCTOR = function() {
 		columns: null,
 		active_editor_id: null,
 		init: function() {
-			jQuery.fn.life = function(types, data, fn) {
-				"use strict";
-				jQuery(this.context).on(types, this.selector, data, fn);
-				return this;
-			};
-
 			self.columns = [
 				{
 					'value': 'col-md-3',
@@ -92,10 +86,8 @@ var TMM_APP_CONTENT_CONSTRUCTOR = function() {
 
 			});
 
-
 			//*****
-
-			jQuery("#layout_constructor_items .delete-element").life('click', function() {
+			jQuery('#layout_constructor_items').on('click', '.delete-element', function() {
 				if (jQuery(".layout_constructor_layout_dialog_desc").length > 0) {
 					return;
 				}
@@ -107,8 +99,7 @@ var TMM_APP_CONTENT_CONSTRUCTOR = function() {
 				return false;
 			});
 
-
-			jQuery("#layout_constructor_items .edit-element").life('click', function() {
+			jQuery('#layout_constructor_items').on('click', '.edit-element', function() {
 
 				if (jQuery(".layout_constructor_layout_dialog_desc").length > 0) {
 					return;
@@ -216,7 +207,7 @@ var TMM_APP_CONTENT_CONSTRUCTOR = function() {
 			});
 
 
-			jQuery("#layout_constructor_items .add-element-size-plus").life('click', function() {
+			jQuery('#layout_constructor_items').on('click', '.add-element-size-plus', function() {
 				var item_id = jQuery(this).data('item-id');
 				var css_class = jQuery("#item_" + item_id).find('.js_css_class').val();
 				var next_li = jQuery("#item_" + item_id + " li.css-class-" + css_class).next('li');
@@ -228,7 +219,7 @@ var TMM_APP_CONTENT_CONSTRUCTOR = function() {
 			});
 
 
-			jQuery("#layout_constructor_items .add-element-size-minus").life('click', function() {
+			jQuery('#layout_constructor_items').on('click', '.add-element-size-minus', function() {
 				var item_id = jQuery(this).data('item-id');
 				var css_class = jQuery("#item_" + item_id).find('.js_css_class').val();
 				var prev_li = jQuery("#item_" + item_id + " li.css-class-" + css_class).prev('li');
@@ -239,7 +230,7 @@ var TMM_APP_CONTENT_CONSTRUCTOR = function() {
 			});
 
 
-			jQuery(".change_column_size").life('click', function() {
+			jQuery(document.body).on('click', '.change_column_size', function() {
 
 				var parent = jQuery(this).parent().parent();
 
@@ -261,7 +252,7 @@ var TMM_APP_CONTENT_CONSTRUCTOR = function() {
 			});
 
 			//****
-			jQuery('#row_background_type').life('change', function() {
+			jQuery(document.body).on('change', '#row_background_type', function() {
 				var val = jQuery(this).val();
 				switch (val) {
 					case 'custom':
@@ -275,11 +266,9 @@ var TMM_APP_CONTENT_CONSTRUCTOR = function() {
 				}
 			});
 
-			jQuery('.tmm_button_upload').life('click', function()
-			{
+			jQuery(document.body).on('click', '.tmm_button_upload', function() {
 				var input_object = jQuery(this).prev('input, textarea');
-				window.send_to_editor = function(html)
-				{
+				window.send_to_editor = function(html) {
 					if (!jQuery("#html_buffer").length) {
 						jQuery('body').append('<div id="html_buffer"></div>')
 					}
@@ -412,7 +401,7 @@ var TMM_APP_CONTENT_CONSTRUCTOR = function() {
 			self._is_rows_exists();
 		},
 		_is_rows_exists: function() {
-			if (jQuery("#layout_constructor_items > li").size() === 0) {
+			if (jQuery("#layout_constructor_items > li").length === 0) {
 				jQuery("#layout_constructor_items").hide();
 				return false;
 			} else {
