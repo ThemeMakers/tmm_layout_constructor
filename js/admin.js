@@ -409,7 +409,7 @@ var TMM_APP_CONTENT_CONSTRUCTOR = function() {
 			self._is_rows_exists();
 		},
 		_is_rows_exists: function() {
-			if (jQuery("#layout_constructor_items > li").size() === 0) {
+			if (jQuery("#layout_constructor_items > li").length === 0) {
 				jQuery("#layout_constructor_items").hide();
 				return false;
 			} else {
