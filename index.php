@@ -4,7 +4,7 @@
   Plugin URI: http://webtemplatemasters.com
   Description: Universal Layout Constructor
   Author: ThemeMakers
-  Version: 1.0.9
+  Version: 1.1.0
   Author URI: http://themeforest.net/user/ThemeMakers
  */
 
