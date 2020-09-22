@@ -4,7 +4,7 @@
   Plugin URI: http://webtemplatemasters.com
   Description: Universal Layout Constructor (Accio)
   Author: ThemeMakers
-  Version: 1.0.4
+  Version: 1.0.5
   Author URI: http://themeforest.net/user/ThemeMakers
  */
 
