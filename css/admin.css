@@ -203,7 +203,7 @@ li.layout_constructor_item {
 
 #layout_constructor_items li td .row-mover {
 	overflow: hidden;
-	line-height: 999px;
+	line-height: 100%;
 	text-indent: -999px;
 	width: 18px;
 	height: 18px;

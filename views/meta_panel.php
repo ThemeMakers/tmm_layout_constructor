@@ -78,9 +78,9 @@
 <ul id="groups_list">
 	<?php if (!empty($groups_array)): ?>
 		<?php foreach ($groups_array as $group_name): ?>
-			<li data-group-name="<?php echo $group_name ?>">
+			<li data-group-name="<?php echo esc_attr( $group_name ) ?>">
 
-				<a href="javascript:tmm_ext_layout_constructor.group_settings('<?php echo $group_name ?>');void(0);" class="button-secondary button_group_settings" style="width: 110px;text-align:center;margin-right:5px;"><?php _e("Edit Group", 'tmm_layout_constructor') ?> (<span><?php echo $group_name ?></span>)</a><br />
+				<a href="javascript:tmm_ext_layout_constructor.group_settings('<?php echo esc_attr( $group_name ) ?>');void(0);" class="button-secondary button_group_settings" style="width: 110px;text-align:center;margin-right:5px;"><?php esc_html_e("Edit Group", 'tmm_layout_constructor') ?> (<span><?php echo esc_attr( $group_name ) ?></span>)</a><br />
 
 				<div style="display: none;" class="group_settings_html">
 
@@ -89,82 +89,82 @@
 						<?php
 						TMM_Ext_LayoutConstructor::draw_html_option(array(
 							'type' => 'checkbox',
-							'title' => __('Full Width', 'tmm_layout_constructor'),
+							'title' => esc_html__('Full Width', 'tmm_layout_constructor'),
 							'shortcode_field' => 'is_full_width',
 							'id' => 'is_full_width',
-							'default_value' => @$tmm_layout_constructor_group[$group_name]['is_full_width'],
-							'is_checked' => (bool) @$tmm_layout_constructor_group[$group_name]['is_full_width'],
-							'description' => __('On / Off', 'tmm_layout_constructor'),
+							'default_value' => $tmm_layout_constructor_group[$group_name]['is_full_width'],
+							'is_checked' => (bool) $tmm_layout_constructor_group[$group_name]['is_full_width'],
+							'description' => esc_html__('On / Off', 'tmm_layout_constructor'),
 						));
 						?>
 						
 						<?php
 						TMM_Ext_LayoutConstructor::draw_html_option(array(
 							'type' => 'checkbox',
-							'title' => __('Scale section height', 'tmm_layout_constructor'),
+							'title' => esc_html__('Scale section height', 'tmm_layout_constructor'),
 							'shortcode_field' => 'viewport_height_full',
 							'id' => 'viewport_height_full',
-							'default_value' => @$tmm_layout_constructor_group[$group_name]['viewport_height_full'],
-							'is_checked' => (bool) @$tmm_layout_constructor_group[$group_name]['viewport_height_full'],
-							'description' => __('Set viewport size height to 100%', 'tmm_layout_constructor'),
+							'default_value' => $tmm_layout_constructor_group[$group_name]['viewport_height_full'],
+							'is_checked' => (bool) $tmm_layout_constructor_group[$group_name]['viewport_height_full'],
+							'description' => esc_html__('Set viewport size height to 100%', 'tmm_layout_constructor'),
 						));
 						?>
 
 						<?php
 						TMM_Ext_LayoutConstructor::draw_html_option(array(
 							'type' => 'checkbox',
-							'title' => __('Disable Padding Top', 'tmm_layout_constructor'),
+							'title' => esc_html__('Disable Padding Top', 'tmm_layout_constructor'),
 							'shortcode_field' => 'padding_top',
 							'id' => 'padding_top',
-							'default_value' => @$tmm_layout_constructor_group[$group_name]['padding_top'],
-							'is_checked' => (bool) @$tmm_layout_constructor_group[$group_name]['padding_top'],
-							'description' => __('On / Off', 'tmm_layout_constructor'),
+							'default_value' => $tmm_layout_constructor_group[$group_name]['padding_top'],
+							'is_checked' => (bool) $tmm_layout_constructor_group[$group_name]['padding_top'],
+							'description' => esc_html__('On / Off', 'tmm_layout_constructor'),
 						));
 						?>
 						
 						<?php
 						TMM_Ext_LayoutConstructor::draw_html_option(array(
 							'type' => 'checkbox',
-							'title' => __('Disable Padding Bottom', 'tmm_layout_constructor'),
+							'title' => esc_html__('Disable Padding Bottom', 'tmm_layout_constructor'),
 							'shortcode_field' => 'padding_bottom',
 							'id' => 'padding_bottom',
-							'default_value' => @$tmm_layout_constructor_group[$group_name]['padding_bottom'],
-							'is_checked' => (bool) @$tmm_layout_constructor_group[$group_name]['padding_bottom'],
-							'description' => __('On / Off', 'tmm_layout_constructor'),
+							'default_value' => $tmm_layout_constructor_group[$group_name]['padding_bottom'],
+							'is_checked' => (bool) $tmm_layout_constructor_group[$group_name]['padding_bottom'],
+							'description' => esc_html__('On / Off', 'tmm_layout_constructor'),
 						));
 						?>	
 						
 						<?php
 						TMM_Ext_LayoutConstructor::draw_html_option(array(
 							'type' => 'checkbox',
-							'title' => __('Transparent Section', 'tmm_layout_constructor'),
+							'title' => esc_html__('Transparent Section', 'tmm_layout_constructor'),
 							'shortcode_field' => 'is_parallax',
 							'id' => 'is_parallax',
-							'default_value' => @$tmm_layout_constructor_group[$group_name]['is_parallax'],
-							'is_checked' => (bool) @$tmm_layout_constructor_group[$group_name]['is_parallax'],
-							'description' => __('Set transparent section background for using video background and set white color to section text', 'tmm_layout_constructor'),
+							'default_value' => $tmm_layout_constructor_group[$group_name]['is_parallax'],
+							'is_checked' => (bool) $tmm_layout_constructor_group[$group_name]['is_parallax'],
+							'description' => esc_html__('Set transparent section background for using video background and set white color to section text', 'tmm_layout_constructor'),
 						));
 						?>
 						
 						<?php
 						TMM_Ext_LayoutConstructor::draw_html_option(array(
 							'type' => 'checkbox',
-							'title' => __('Background Attachment', 'tmm_layout_constructor'),
+							'title' => esc_html__('Background Attachment', 'tmm_layout_constructor'),
 							'shortcode_field' => 'bg_attachment',
 							'id' => 'bg_attachment',
-							'default_value' => @$tmm_layout_constructor_group[$group_name]['bg_attachment'],
-							'is_checked' => (bool) @$tmm_layout_constructor_group[$group_name]['bg_attachment'],
-							'description' => __('Fixed / Scroll', 'tmm_layout_constructor'),
+							'default_value' => $tmm_layout_constructor_group[$group_name]['bg_attachment'],
+							'is_checked' => (bool) $tmm_layout_constructor_group[$group_name]['bg_attachment'],
+							'description' => esc_html__('Fixed / Scroll', 'tmm_layout_constructor'),
 						));
 						?>	
 						
 						<?php
 						TMM_Ext_LayoutConstructor::draw_html_option(array(
-							'title' => __('Background Color', 'tmm_layout_constructor'),
+							'title' => esc_html__('Background Color', 'tmm_layout_constructor'),
 							'shortcode_field' => 'bg_color',
 							'type' => 'color',
 							'description' => '',
-							'default_value' => @$tmm_layout_constructor_group[$group_name]['bg_color'],
+							'default_value' => $tmm_layout_constructor_group[$group_name]['bg_color'],
 							'id' => 'row_background_color'
 						));
 						?>	
@@ -176,10 +176,10 @@
 						<?php
 						TMM_Ext_LayoutConstructor::draw_html_option(array(
 							'type' => 'upload',
-							'title' => __('Background Image', 'tmm_layout_constructor'),
+							'title' => esc_html__('Background Image', 'tmm_layout_constructor'),
 							'shortcode_field' => 'bg_image',
 							'id' => '',
-							'default_value' => @$tmm_layout_constructor_group[$group_name]['bg_image'],
+							'default_value' => $tmm_layout_constructor_group[$group_name]['bg_image'],
 							'description' => ''
 						));
 						?>	
@@ -187,10 +187,10 @@
 						<?php
 						TMM_Ext_LayoutConstructor::draw_html_option(array(
 							'type' => 'upload',
-							'title' => __('Image instead of video', 'tmm_layout_constructor'),
+							'title' => esc_html__('Image instead of video', 'tmm_layout_constructor'),
 							'shortcode_field' => 'bg_touch_image',
 							'id' => '',
-							'default_value' => @$tmm_layout_constructor_group[$group_name]['bg_touch_image'],
+							'default_value' => $tmm_layout_constructor_group[$group_name]['bg_touch_image'],
 							'description' => '(for touch devices)'
 						));
 						?>	
@@ -203,22 +203,22 @@
 						
 						<?php
 						TMM_Ext_LayoutConstructor::draw_html_option(array(
-							'title' => __('Opacity', 'tmm_layout_constructor'),
+							'title' => esc_html__('Opacity', 'tmm_layout_constructor'),
 							'shortcode_field' => 'opacity',
 							'type' => 'text',
 							'description' => '(add color shade over background image) min: 0, max: 100',
-							'default_value' => @$tmm_layout_constructor_group[$group_name]['opacity'],
+							'default_value' => $tmm_layout_constructor_group[$group_name]['opacity'],
 							'id' => 'value_opacity'
 						));
 						?>		
 
 						<?php
 						TMM_Ext_LayoutConstructor::draw_html_option(array(
-							'title' => __('Border Bottom Color', 'tmm_layout_constructor'),
+							'title' => esc_html__('Border Bottom Color', 'tmm_layout_constructor'),
 							'shortcode_field' => 'border_bottom_color',
 							'type' => 'color',
 							'description' => '',
-							'default_value' => @$tmm_layout_constructor_group[$group_name]['border_bottom_color'],
+							'default_value' => $tmm_layout_constructor_group[$group_name]['border_bottom_color'],
 							'id' => 'row_border_bottom_color'
 						));
 						?>	
@@ -226,30 +226,30 @@
 						<?php
 						TMM_Ext_LayoutConstructor::draw_html_option(array(
 							'type' => 'checkbox',
-							'title' => __('Overlay', 'tmm_layout_constructor'),
+							'title' => esc_html__('Overlay', 'tmm_layout_constructor'),
 							'shortcode_field' => 'is_overlay',
 							'id' => 'is_overlay',
-							'default_value' => @$tmm_layout_constructor_group[$group_name]['is_overlay'],
-							'is_checked' => (bool) @$tmm_layout_constructor_group[$group_name]['is_overlay'],
-							'description' => __('Set overlay on background image', 'tmm_layout_constructor'),
+							'default_value' => $tmm_layout_constructor_group[$group_name]['is_overlay'],
+							'is_checked' => (bool) $tmm_layout_constructor_group[$group_name]['is_overlay'],
+							'description' => esc_html__('Set overlay on background image', 'tmm_layout_constructor'),
 						));
 						?>
 
 					</div>
 
 				</div>
-				<input type="hidden" name="tmm_layout_constructor_group[<?php echo $group_name ?>][bg_image]" data-attr="bg_image" value="<?php echo @$tmm_layout_constructor_group[$group_name]['bg_image'] ?>" />
-				<input type="hidden" name="tmm_layout_constructor_group[<?php echo $group_name ?>][bg_touch_image]" data-attr="bg_touch_image" value="<?php echo @$tmm_layout_constructor_group[$group_name]['bg_touch_image'] ?>" />
-				<input type="hidden" name="tmm_layout_constructor_group[<?php echo $group_name ?>][bg_color]" data-attr="bg_color" value="<?php echo @$tmm_layout_constructor_group[$group_name]['bg_color'] ?>" />
-				<input type="hidden" name="tmm_layout_constructor_group[<?php echo $group_name ?>][border_bottom_color]" data-attr="border_bottom_color" value="<?php echo @$tmm_layout_constructor_group[$group_name]['border_bottom_color'] ?>" />
-				<input type="hidden" name="tmm_layout_constructor_group[<?php echo $group_name ?>][is_overlay]" data-attr="is_overlay" value="<?php echo @$tmm_layout_constructor_group[$group_name]['is_overlay'] ?>" />
-				<input type="hidden" name="tmm_layout_constructor_group[<?php echo $group_name ?>][is_parallax]" data-attr="is_parallax" value="<?php echo @$tmm_layout_constructor_group[$group_name]['is_parallax'] ?>" />
-				<input type="hidden" name="tmm_layout_constructor_group[<?php echo $group_name ?>][is_full_width]" data-attr="is_full_width" value="<?php echo @$tmm_layout_constructor_group[$group_name]['is_full_width'] ?>" />
-				<input type="hidden" name="tmm_layout_constructor_group[<?php echo $group_name ?>][bg_attachment]" data-attr="bg_attachment" value="<?php echo @$tmm_layout_constructor_group[$group_name]['bg_attachment'] ?>" />
-				<input type="hidden" name="tmm_layout_constructor_group[<?php echo $group_name ?>][opacity]" data-attr="opacity" value="<?php echo @$tmm_layout_constructor_group[$group_name]['opacity'] ?>" />				
-				<input type="hidden" name="tmm_layout_constructor_group[<?php echo $group_name ?>][viewport_height_full]" data-attr="viewport_height_full" value="<?php echo @$tmm_layout_constructor_group[$group_name]['viewport_height_full'] ?>" />
-				<input type="hidden" name="tmm_layout_constructor_group[<?php echo $group_name ?>][padding_top]" data-attr="padding_top" value="<?php echo @$tmm_layout_constructor_group[$group_name]['padding_top'] ?>" />
-				<input type="hidden" name="tmm_layout_constructor_group[<?php echo $group_name ?>][padding_bottom]" data-attr="padding_bottom" value="<?php echo @$tmm_layout_constructor_group[$group_name]['padding_bottom'] ?>" />
+				<input type="hidden" name="tmm_layout_constructor_group[<?php echo esc_attr( $group_name ) ?>][bg_image]" data-attr="bg_image" value="<?php echo esc_attr( $tmm_layout_constructor_group[$group_name]['bg_image'] ) ?>" />
+				<input type="hidden" name="tmm_layout_constructor_group[<?php echo esc_attr( $group_name ) ?>][bg_touch_image]" data-attr="bg_touch_image" value="<?php echo esc_attr( $tmm_layout_constructor_group[$group_name]['bg_touch_image'] ) ?>" />
+				<input type="hidden" name="tmm_layout_constructor_group[<?php echo esc_attr( $group_name ) ?>][bg_color]" data-attr="bg_color" value="<?php echo esc_attr( $tmm_layout_constructor_group[$group_name]['bg_color'] ) ?>" />
+				<input type="hidden" name="tmm_layout_constructor_group[<?php echo esc_attr( $group_name ) ?>][border_bottom_color]" data-attr="border_bottom_color" value="<?php echo esc_attr( $tmm_layout_constructor_group[$group_name]['border_bottom_color'] ) ?>" />
+				<input type="hidden" name="tmm_layout_constructor_group[<?php echo esc_attr( $group_name ) ?>][is_overlay]" data-attr="is_overlay" value="<?php echo esc_attr( $tmm_layout_constructor_group[$group_name]['is_overlay'] ) ?>" />
+				<input type="hidden" name="tmm_layout_constructor_group[<?php echo esc_attr( $group_name ) ?>][is_parallax]" data-attr="is_parallax" value="<?php echo esc_attr( $tmm_layout_constructor_group[$group_name]['is_parallax'] ) ?>" />
+				<input type="hidden" name="tmm_layout_constructor_group[<?php echo esc_attr( $group_name ) ?>][is_full_width]" data-attr="is_full_width" value="<?php echo esc_attr( $tmm_layout_constructor_group[$group_name]['is_full_width'] ) ?>" />
+				<input type="hidden" name="tmm_layout_constructor_group[<?php echo esc_attr( $group_name ) ?>][bg_attachment]" data-attr="bg_attachment" value="<?php echo esc_attr( $tmm_layout_constructor_group[$group_name]['bg_attachment'] ) ?>" />
+				<input type="hidden" name="tmm_layout_constructor_group[<?php echo esc_attr( $group_name ) ?>][opacity]" data-attr="opacity" value="<?php echo esc_attr( $tmm_layout_constructor_group[$group_name]['opacity'] ) ?>" />
+				<input type="hidden" name="tmm_layout_constructor_group[<?php echo esc_attr( $group_name ) ?>][viewport_height_full]" data-attr="viewport_height_full" value="<?php echo esc_attr( $tmm_layout_constructor_group[$group_name]['viewport_height_full'] ) ?>" />
+				<input type="hidden" name="tmm_layout_constructor_group[<?php echo esc_attr( $group_name ) ?>][padding_top]" data-attr="padding_top" value="<?php echo esc_attr( $tmm_layout_constructor_group[$group_name]['padding_top'] ) ?>" />
+				<input type="hidden" name="tmm_layout_constructor_group[<?php echo esc_attr( $group_name ) ?>][padding_bottom]" data-attr="padding_bottom" value="<?php echo esc_attr( $tmm_layout_constructor_group[$group_name]['padding_bottom'] ) ?>" />
 			</li>
 		<?php endforeach; ?>
 	<?php endif; ?>
@@ -278,15 +278,15 @@
 			<table>
 				<tr>
 					<td>
-						<a href="javascript:tmm_ext_layout_constructor.set_group(__ROW_ID__);void(0);" class="button-secondary button_set_group" style="width: 110px;text-align:center;margin-right:5px;"><?php _e("Group", 'tmm_layout_constructor') ?> (<span>0</span>)</a><br />
-						<a href="javascript:tmm_ext_layout_constructor.add_column(__ROW_ID__);void(0);" class="button-secondary"><?php _e("Add Column", 'tmm_layout_constructor') ?></a><br />
-						<a href="javascript:tmm_ext_layout_constructor.edit_row(__ROW_ID__);void(0);" class="button-secondary" style="display: none;"><?php _e("Edit", 'tmm_layout_constructor') ?></a>
-						<a href="javascript:tmm_ext_layout_constructor.delete_row(__ROW_ID__);void(0);" class="button-secondary"><?php _e("Delete", 'tmm_layout_constructor') ?></a>
+						<a href="javascript:tmm_ext_layout_constructor.set_group(__ROW_ID__);void(0);" class="button-secondary button_set_group" style="width: 110px;text-align:center;margin-right:5px;"><?php esc_html_e("Group", 'tmm_layout_constructor') ?> (<span>0</span>)</a><br />
+						<a href="javascript:tmm_ext_layout_constructor.add_column(__ROW_ID__);void(0);" class="button-secondary"><?php esc_html_e("Add Column", 'tmm_layout_constructor') ?></a><br />
+						<a href="javascript:tmm_ext_layout_constructor.edit_row(__ROW_ID__);void(0);" class="button-secondary" style="display: none;"><?php esc_html_e("Edit", 'tmm_layout_constructor') ?></a>
+						<a href="javascript:tmm_ext_layout_constructor.delete_row(__ROW_ID__);void(0);" class="button-secondary"><?php esc_html_e("Delete", 'tmm_layout_constructor') ?></a>
 					</td>
 					<td class="col_items">
 						<span class="row_columns_container" id="row_columns_container___ROW_ID__"></span>
 					</td>
-					<td><div class="row-mover"><?php _e("Row Mover", 'tmm_layout_constructor') ?></div></td>
+					<td><div class="row-mover"><?php esc_html_e("Row Mover", 'tmm_layout_constructor') ?></div></td>
 				</tr>
 			</table>
 			<input type="hidden" id="row_bg_custom_color___ROW_ID__" value="" name="tmm_layout_constructor_row[__ROW_ID__][bg_color]" />			
@@ -301,7 +301,7 @@
 		TMM_Ext_LayoutConstructor::draw_html_option(array(
 			'type' => 'select',
 			'title' => '',
-			'label' => __("Layout constructor", 'tmm_layout_constructor'),
+			'label' => esc_html__("Layout constructor", 'tmm_layout_constructor'),
 			'shortcode_field' => 'grid_selector',
 			'id' => '',
 			'options' => TMM_Ext_LayoutConstructor::$grid_class,
