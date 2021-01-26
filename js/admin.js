@@ -93,7 +93,7 @@ var TMM_APP_CONTENT_CONSTRUCTOR = function() {
 				}
 
 				if (confirm(lang_sure_item_delete)) {
-					jQuery("#item_" + jQuery(this).data('item-id')).remove();
+					jQuery("#item_" + jQuery(this).data('itemId')).remove();
 				}
 
 				return false;
@@ -119,7 +119,7 @@ var TMM_APP_CONTENT_CONSTRUCTOR = function() {
                 }
                     
 
-				var item_id = jQuery(this).data('item-id'),
+				var item_id = jQuery(this).data('itemId'),
                     title = jQuery("#item_" + item_id).find('.page-element-item-text').html(),
                     text = jQuery("#item_" + item_id).find('.js_content').text(),
                     data = {
@@ -208,7 +208,7 @@ var TMM_APP_CONTENT_CONSTRUCTOR = function() {
 
 
 			jQuery('#layout_constructor_items').on('click', '.add-element-size-plus', function() {
-				var item_id = jQuery(this).data('item-id');
+				var item_id = jQuery(this).data('itemId');
 				var css_class = jQuery("#item_" + item_id).find('.js_css_class').val();
 				var next_li = jQuery("#item_" + item_id + " li.css-class-" + css_class).next('li');
 				if (next_li.length > 0) {
@@ -220,7 +220,7 @@ var TMM_APP_CONTENT_CONSTRUCTOR = function() {
 
 
 			jQuery('#layout_constructor_items').on('click', '.add-element-size-minus', function() {
-				var item_id = jQuery(this).data('item-id');
+				var item_id = jQuery(this).data('itemId');
 				var css_class = jQuery("#item_" + item_id).find('.js_css_class').val();
 				var prev_li = jQuery("#item_" + item_id + " li.css-class-" + css_class).prev('li');
 				if (prev_li.length > 0) {
@@ -238,13 +238,13 @@ var TMM_APP_CONTENT_CONSTRUCTOR = function() {
 					jQuery(parent).hide(200);
 					return false;
 				}
-				var item_id = jQuery(parent).data('item-id');
+				var item_id = jQuery(parent).data('itemId');
 
-				jQuery("#item_" + item_id).removeAttr('class').addClass('page-element').addClass(jQuery(this).data('css-class'));
+				jQuery("#item_" + item_id).removeAttr('class').addClass('page-element').addClass(jQuery(this).data('cssClass'));
 				jQuery("#item_" + item_id).find('.element-size-text').html(jQuery(this).data('value'));
 
-				jQuery("#item_" + item_id).find('.js_css_class').val(jQuery(this).data('css-class'));
-				jQuery("#item_" + item_id).find('.js_front_css_class').val(jQuery(this).data('front-css-class'));
+				jQuery("#item_" + item_id).find('.js_css_class').val(jQuery(this).data('cssClass'));
+				jQuery("#item_" + item_id).find('.js_front_css_class').val(jQuery(this).data('frontCssClass'));
 				jQuery("#item_" + item_id).find('.js_value').val(jQuery(this).data('value'));
 				jQuery(parent).hide(200);
 
