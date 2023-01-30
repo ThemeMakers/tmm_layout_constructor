@@ -95,6 +95,7 @@
 							'default_value' => $tmm_is_full_width,
 							'is_checked' => (bool) $tmm_is_full_width,
 							'description' => esc_html__('On / Off', 'tmm_layout_constructor'),
+							'css_classes' => ''
 						));
 						?>
 						
@@ -108,6 +109,7 @@
 							'default_value' => $tmm_viewport_height_full,
 							'is_checked' => (bool) $tmm_viewport_height_full,
 							'description' => esc_html__('Set viewport size height to 100%', 'tmm_layout_constructor'),
+							'css_classes' => ''
 						));
 						?>
 
@@ -121,6 +123,7 @@
 							'default_value' => $tmm_padding_top,
 							'is_checked' => (bool) $tmm_padding_top,
 							'description' => esc_html__('On / Off', 'tmm_layout_constructor'),
+							'css_classes' => ''
 						));
 						?>
 						
@@ -134,6 +137,7 @@
 							'default_value' => $tmm_padding_bottom,
 							'is_checked' => (bool) $tmm_padding_bottom,
 							'description' => esc_html__('On / Off', 'tmm_layout_constructor'),
+							'css_classes' => ''
 						));
 						?>	
 						
@@ -147,6 +151,7 @@
 							'default_value' => $tmm_is_parallax,
 							'is_checked' => (bool) $tmm_is_parallax,
 							'description' => esc_html__('Set transparent section background for using video background and set white color to section text', 'tmm_layout_constructor'),
+							'css_classes' => ''
 						));
 						?>
 						
@@ -160,6 +165,7 @@
 							'default_value' => $tmm_bg_attachment,
 							'is_checked' => (bool) $tmm_bg_attachment,
 							'description' => esc_html__('Fixed / Scroll', 'tmm_layout_constructor'),
+							'css_classes' => ''
 						));
 						?>	
 						
@@ -171,7 +177,8 @@
 							'type' => 'color',
 							'description' => '',
 							'default_value' => $tmm_bg_color,
-							'id' => 'row_background_color'
+							'id' => 'row_background_color',
+							'css_classes' => ''
 						));
 						?>	
 
@@ -187,7 +194,8 @@
 							'shortcode_field' => 'bg_image',
 							'id' => '',
 							'default_value' => $tmm_bg_image,
-							'description' => ''
+							'description' => '',
+							'css_classes' => ''
 						));
 						?>	
 						
@@ -199,7 +207,8 @@
 							'shortcode_field' => 'bg_touch_image',
 							'id' => '',
 							'default_value' => $tmm_bg_touch_image,
-							'description' => '(for touch devices)'
+							'description' => '(for touch devices)',
+							'css_classes' => ''
 						));
 						?>	
 						
@@ -211,7 +220,8 @@
 							'type' => 'text',
 							'description' => '(add color shade over background image) min: 0, max: 100',
 							'default_value' => $tmm_opacity,
-							'id' => 'value_opacity'
+							'id' => 'value_opacity',
+							'css_classes' => ''
 						));
 						?>		
 
@@ -223,7 +233,8 @@
 							'type' => 'color',
 							'description' => '',
 							'default_value' => $tmm_border_bottom_color,
-							'id' => 'row_border_bottom_color'
+							'id' => 'row_border_bottom_color',
+							'css_classes' => ''
 						));
 						?>	
 				
@@ -237,6 +248,7 @@
 							'default_value' => $tmm_is_overlay,
 							'is_checked' => (bool) $tmm_is_overlay,
 							'description' => esc_html__('Set overlay on background image', 'tmm_layout_constructor'),
+							'css_classes' => ''
 						));
 						?>
 
