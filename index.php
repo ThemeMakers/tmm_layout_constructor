@@ -4,7 +4,7 @@
   Plugin URI: http://webtemplatemasters.com
   Description: Universal Layout Constructor (Accio)
   Author: ThemeMakers
-  Version: 1.0.7
+  Version: 1.0.8
   Author URI: http://themeforest.net/user/ThemeMakers
  */
 
@@ -37,7 +37,7 @@ class TMM_Ext_LayoutConstructor {
 		if ($is_tmm_theme_options === FALSE) {
 			wp_enqueue_style('tmm_ext_layout_constructor', self::get_application_uri() . 'css/admin.css');
 			wp_enqueue_script('tmm_ext_layout_constructor', self::get_application_uri() . 'js/admin.js', array('jquery', 'jquery-ui-core', 'jquery-ui-sortable'));
-			wp_enqueue_style('tmm_ext_layout_constructor_popup3', self::get_application_uri() . 'js/tmm_popup/styles.css');
+			// wp_enqueue_style('tmm_ext_layout_constructor_popup3', self::get_application_uri() . 'js/tmm_popup/styles.css');
 			wp_enqueue_script('tmm_ext_layout_constructor_popup3', self::get_application_uri() . 'js/tmm_popup/tmm_advanced_wp_popup.js', array('jquery'));
 			wp_enqueue_style('tmm_ext_layout_constructor_colorpicker', self::get_application_uri() . 'js/colorpicker/colorpicker.css');
 			wp_enqueue_script('tmm_ext_layout_constructor_colorpicker', self::get_application_uri() . 'js/colorpicker/colorpicker.js', array('jquery'));
